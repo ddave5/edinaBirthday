@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Head from 'next/head'
 import BeforeBirthday from "@/Components/beforeBirthday/BeforeBirthday";
 import AfterBirthDay from "@/Components/afterBirthday/AfterBirthDay";
-import icon from '@/assets/icon/cake.svg';
+import icon from '@/assets/icon/birthdayIcon.svg';
 
 export default function Home() {
   const [partyTime, setPartyTime] = useState(false);
@@ -13,8 +13,8 @@ export default function Home() {
 
   useEffect( () => {
     
-    //const target = new Date("06/06/2024 23:59:59");
-    const target = new Date("01/13/2024 16:41:40");
+    const target = new Date("06/06/2024 23:59:59");
+    //const target = new Date("03/21/2024 17:11:30");
     
     const interval = setInterval( () => {
       const now = new Date();
@@ -22,16 +22,10 @@ export default function Home() {
       const difference = target.getTime() - now.getTime();
 
       const d = Math.floor(difference / (1000 * 60 * 60 * 24))
-      setDays(d);
-
       const h = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
-      setHours(h);
-
       const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60))
-      setMinutes(m);
-
       const s = Math.floor((difference % (1000 * 60)) / 1000)
-      setSeconds(s);
+      setDays(d); setHours(h); setMinutes(m); setSeconds(s);
 
       if (d <= 0 && h <= 0 && m <= 0 && s <= 0) {
         setPartyTime(true);
@@ -44,10 +38,10 @@ export default function Home() {
   return (
     <>
       <Head>
-          <title>Boldog születésnapot!</title>
-          <meta name="description" content="Electro Netics Kft. Home page" />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <link rel="icon" href="assets/icon/cake.svg" />
+        <title>Boldog születésnapot!</title>
+        <meta name="description" content="Electro Netics Kft. Home page" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" type="image/x-icon" href="./favicon.ico" />
       </Head>
       <main>
         {partyTime ? 

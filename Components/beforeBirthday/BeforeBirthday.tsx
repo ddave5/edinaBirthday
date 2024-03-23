@@ -18,7 +18,7 @@ const BeforeBirthday = (param: {days: number , hours: number, minutes: number, s
         <div className='flex justify-center'>
           <ImageCarousel >
             {[
-              ...images.map((image, index) => <Image src={image} alt='00' key={index}/>)
+              ...images.map((image, index) => <Image src={image} alt='00' key={index} className=''/>)
             ]}
           </ImageCarousel>
         </div>
